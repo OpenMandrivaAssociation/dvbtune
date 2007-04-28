@@ -1,33 +1,11 @@
-# Define Mandrake Linux version we are building for
-%define mdkversion %(perl -pe '/(\\d+)\\.(\\d)\\.?(\\d)?/; $_="$1$2".($3||0)' /etc/mandrake-release)
-
 %define name	dvbtune
 %define version 0.5
-%define beta	0
-%define mdkrel	4mdk
+%define release	%mkrel 5
 
-%if %mdkversion < 1000
-%define kernel_rel 2.4.22-28.tmb.1mdk
-%define kernel_dir /usr/src/linux-%{kernel_rel}
-%define kernel_inc %kernel_dir/3rdparty/mod_dvb/include
-%else
-#define kernel_rel 2.6.3-7mdk
 %define kernel_dir /usr/src/linux
-#-{kernel_rel}
 %define kernel_inc %kernel_dir/include
-%endif
 
-%define xml_inc %_includedir/libxml2
-
-
-%if %beta
-%define release 0.%{beta}.%{mdkrel}
-%else
-%define release %{mdkrel}
-%endif
-
-
-Summary:	Dvbtune
+Summary:	Dvbtune is a tuning application for DVB cards.
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
@@ -41,9 +19,8 @@ BuildRequires:	kernel-source
 BuildRequires:	libxml2-devel
 
 %description
- DVBtune is a simple tuning application for DVB cards supported by the
- Linux DVB driver (www.linuxtv.org).
-
+DVBtune is a simple tuning application for DVB cards supported by the
+Linux DVB driver (www.linuxtv.org).
 
 %prep
 %setup -q
