@@ -13,6 +13,7 @@ Source0:	http://osdn.dl.sourceforge.net/dvbtools/%{name}-%{version}.tar.bz2
 URL:		http://www.linuxstb.org
 License:	GPL
 Group:		Video
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 Prefix:		%{_prefix}
 BuildRequires:	kernel-source
 BuildRequires:	libxml2-devel
