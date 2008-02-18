@@ -1,6 +1,6 @@
 %define name	dvbtune
 %define version 0.5
-%define release	%mkrel 6
+%define release	%mkrel 7
 
 %define kernel_dir /usr/src/linux
 %define kernel_inc %kernel_dir/include
