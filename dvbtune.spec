@@ -1,6 +1,6 @@
 %define name	dvbtune
 %define version 0.5
-%define release	%mkrel 10
+%define release	%mkrel 11
 
 %define kernel_dir /usr/src/linux
 %define kernel_inc %kernel_dir/include
@@ -17,6 +17,7 @@ BuildRoot:	%{_tmppath}/%{name}-buildroot
 Prefix:		%{_prefix}
 BuildRequires:	kernel-source
 BuildRequires:	libxml2-devel
+Requires(post):	update-alternatives
 
 %description
 DVBtune is a simple tuning application for DVB cards supported by the
