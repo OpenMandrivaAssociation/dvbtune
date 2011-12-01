@@ -49,7 +49,7 @@ install -m755 xml2vdr dvb_xml2vdr-fin2
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 install -d -m755 %buildroot%_bindir
 install -m755 dvbtune-* %buildroot%_bindir/
 install -m755 dvb_* %buildroot%_bindir/
@@ -80,7 +80,7 @@ if [ $1 = 0 ]; then
 	update-alternatives --remove dvbtune %_bindir/dvbtune-fin2
 fi
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
