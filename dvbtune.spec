@@ -1,16 +1,17 @@
 %define kernel_dir /usr/src/linux
 %define kernel_inc %kernel_dir/include
+%define debug_package %{nil}
 
 Summary:	Tuning application for DVB cards
 Name:		dvbtune
 Version:	0.5
-Release:	14
+Release:	15
 License:	GPLv2
 Group:		Video
 Url:		http://www.linuxstb.org
 Source0:	http://osdn.dl.sourceforge.net/dvbtools/%{name}-%{version}.tar.bz2
 
-BuildRequires:	kernel-source
+BuildRequires:	kernel-headers
 BuildRequires:	pkgconfig(libxml-2.0)
 Requires(post):	update-alternatives
 
