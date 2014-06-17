@@ -21,6 +21,8 @@ Linux DVB driver (www.linuxtv.org).
 
 %prep
 %setup -q
+find . -type f -exec chmod -x {} \;
+
 
 %build
 #UK
@@ -63,6 +65,8 @@ echo "update-alternatives --install %{_bindir}/dvbtune dvbtune %{_bindir}/dvbtun
 echo "--slave  %{_bindir}/dvb_xml2vdr dvb_xml2vdr %{_bindir}/dvb_xml2vdr-fin2 \\" >> dvbtune-setup-alternatives.sh
 echo >> dvbtune-setup-alternatives.sh
 
+
+
 %post -f dvbtune-setup-alternatives.sh
 
 %postun
@@ -75,6 +79,7 @@ fi
 %files
 %doc README
 %{_bindir}/*
+%exclude %{_bindir}/dvb_defaults.h
 %dir %{_libdir}/%{name}
 %{_libdir}/%{name}/*
 
