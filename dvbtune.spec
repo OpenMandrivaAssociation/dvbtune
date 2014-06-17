@@ -65,6 +65,7 @@ echo "update-alternatives --install %{_bindir}/dvbtune dvbtune %{_bindir}/dvbtun
 echo "--slave  %{_bindir}/dvb_xml2vdr dvb_xml2vdr %{_bindir}/dvb_xml2vdr-fin2 \\" >> dvbtune-setup-alternatives.sh
 echo >> dvbtune-setup-alternatives.sh
 
+rm -fr %{buildroot}%{_bindir}/dvb_defaults.h
 
 
 %post -f dvbtune-setup-alternatives.sh
@@ -79,7 +80,6 @@ fi
 %files
 %doc README
 %{_bindir}/*
-%exclude %{_bindir}/dvb_defaults.h
 %dir %{_libdir}/%{name}
 %{_libdir}/%{name}/*
 
