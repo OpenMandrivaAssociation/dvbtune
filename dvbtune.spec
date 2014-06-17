@@ -5,7 +5,7 @@
 Summary:	Tuning application for DVB cards
 Name:		dvbtune
 Version:	0.5
-Release:	20
+Release:	21
 License:	GPLv2
 Group:		Video
 Url:		http://www.linuxstb.org
@@ -21,6 +21,8 @@ Linux DVB driver (www.linuxtv.org).
 
 %prep
 %setup -q
+find . -type f -exec chmod -x {} \;
+
 
 %build
 #UK
@@ -62,6 +64,14 @@ echo >> dvbtune-setup-alternatives.sh
 echo "update-alternatives --install %{_bindir}/dvbtune dvbtune %{_bindir}/dvbtune-fin2 10 \\" >> dvbtune-setup-alternatives.sh
 echo "--slave  %{_bindir}/dvb_xml2vdr dvb_xml2vdr %{_bindir}/dvb_xml2vdr-fin2 \\" >> dvbtune-setup-alternatives.sh
 echo >> dvbtune-setup-alternatives.sh
+
+rm -fr %{buildroot}%{_bindir}/dvb_defaults.h
+pushd %{buildroot}%{_libdir}/dvbtune
+chmod -x README astra28.txt astra19.txt
+popd
+
+
+
 
 %post -f dvbtune-setup-alternatives.sh
 
