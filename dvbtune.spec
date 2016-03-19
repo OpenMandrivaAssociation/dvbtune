@@ -5,7 +5,7 @@
 Summary:	Tuning application for DVB cards
 Name:		dvbtune
 Version:	0.5
-Release:	24
+Release:	25
 License:	GPLv2
 Group:		Video
 Url:		http://www.linuxstb.org
