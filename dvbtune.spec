@@ -5,11 +5,12 @@
 Summary:	Tuning application for DVB cards
 Name:		dvbtune
 Version:	0.5
-Release:	26
+Release:	27
 License:	GPLv2
 Group:		Video
 Url:		http://www.linuxstb.org
 Source0:	http://osdn.dl.sourceforge.net/dvbtools/%{name}-%{version}.tar.bz2
+Patch0:		dvbtune-0.5-compile.patch
 
 BuildRequires:	kernel-headers
 BuildRequires:	pkgconfig(libxml-2.0)
@@ -21,8 +22,10 @@ Linux DVB driver (www.linuxtv.org).
 
 %prep
 %setup -q
+%apply_patches
 find . -type f -exec chmod -x {} \;
 
+sed -i -e 's,^CC=.*,CC=%{__cc},g;s|-Wall|%{optflags} -Wall|g' Makefile
 
 %build
 #UK
