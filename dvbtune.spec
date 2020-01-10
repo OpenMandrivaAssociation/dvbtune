@@ -22,7 +22,7 @@ Linux DVB driver (www.linuxtv.org).
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 find . -type f -exec chmod -x {} \;
 
 sed -i -e 's,^CC=.*,CC=%{__cc},g;s|-Wall|%{optflags} -Wall|g' Makefile
