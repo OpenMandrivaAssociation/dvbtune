@@ -1,6 +1,5 @@
 %define kernel_dir /usr/src/linux
 %define kernel_inc %kernel_dir/include
-%define debug_package %{nil}
 
 Summary:	Tuning application for DVB cards
 Name:		dvbtune
