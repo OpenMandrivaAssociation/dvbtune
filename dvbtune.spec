@@ -4,7 +4,7 @@
 Summary:	Tuning application for DVB cards
 Name:		dvbtune
 Version:	0.5
-Release:	28
+Release:	29
 License:	GPLv2
 Group:		Video
 Url:		http://www.linuxstb.org
@@ -20,8 +20,7 @@ DVBtune is a simple tuning application for DVB cards supported by the
 Linux DVB driver (www.linuxtv.org).
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 find . -type f -exec chmod -x {} \;
 
 sed -i -e 's,^CC=.*,CC=%{__cc},g;s|-Wall|%{optflags} -Wall|g' Makefile
@@ -73,8 +72,6 @@ chmod -x README astra28.txt astra19.txt
 popd
 
 
-
-
 %post -f dvbtune-setup-alternatives.sh
 
 %postun
@@ -89,4 +86,3 @@ fi
 %{_bindir}/*
 %dir %{_libdir}/%{name}
 %{_libdir}/%{name}/*
-
