@@ -7,7 +7,7 @@ Version:	0.5
 Release:	30
 License:	GPLv2
 Group:		Video
-Url:		http://www.linuxstb.org
+Url:		https://www.linuxstb.org
 Source0:	http://osdn.dl.sourceforge.net/dvbtools/%{name}-%{version}.tar.bz2
 Patch0:		dvbtune-0.5-compile.patch
 
